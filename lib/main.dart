@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'world_population_calculator.dart';
+import 'package:worldpopulationcounter/widgets/world_population.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,54 +9,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SafeArea(
+      home: DefaultTabController(
+        length: 3,
         child: Scaffold(
-          body: Center(
-            child: Container(
-              child: WorldPopWidget(),
+          appBar: AppBar(
+            title: Text('World Population Live'),
+            bottom: TabBar(
+              tabs: <Widget>[
+                Tab(
+                  icon: Icon(Icons.group),
+                ),
+                Tab(icon: Icon(Icons.flag)),
+                Tab(icon: Icon(Icons.settings)),
+              ],
             ),
           ),
+          body: TabBarView(children: <Widget>[
+            Center(
+              child: Container(
+                child: WorldPopWidget(),
+              ),
+            ),
+            Icon(Icons.directions_car),
+            Icon(Icons.directions_transit),
+          ]),
         ),
       ),
     );
-  }
-}
-
-class WorldPopWidget extends StatefulWidget {
-  const WorldPopWidget({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  _WorldPopWidgetState createState() => _WorldPopWidgetState();
-}
-
-class _WorldPopWidgetState extends State<WorldPopWidget> {
-  Timer timer;
-  int worldPopulation;
-
-  @override
-  void initState() {
-    super.initState();
-    timer = Timer.periodic(
-        Duration(seconds: 1),
-        (Timer t) => setState(() {
-              worldPopulation =
-                  WorldPopCalculator().getTotalPopulation().round();
-            }));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      '${worldPopulation != null ? worldPopulation : 'Calculating...'}',
-      style: TextStyle(color: Colors.black),
-    );
-  }
-
-  @override
-  void dispose() {
-    timer?.cancel();
-    super.dispose();
   }
 }
