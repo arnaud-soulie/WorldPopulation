@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:worldpopulationcounter/world_population_calculator.dart';
+import 'package:worldpopulationcounter/brain/world_population_calculator.dart';
 import 'package:number_display/number_display.dart';
 
 class WorldPopWidget extends StatefulWidget {
@@ -28,7 +28,8 @@ class _WorldPopWidgetState extends State<WorldPopWidget> {
   Widget build(BuildContext context) {
     return Text(
       '${worldPopulation != null ? display(worldPopulation) : 'Processing...'}',
-      style: TextStyle(color: Colors.black, fontSize: 25.0),
+      style: TextStyle(
+          color: Colors.black87, fontSize: 30.0, fontWeight: FontWeight.w500),
     );
   }
 

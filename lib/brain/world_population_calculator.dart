@@ -1,4 +1,4 @@
-import 'datas.dart';
+import 'package:worldpopulationcounter/datas.dart';
 
 class WorldPopCalculator {
   int _secondsSinceStartOfYear, _totalSecondsInCurrentYear, _deltaPop;

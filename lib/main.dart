@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:worldpopulationcounter/widgets/world_population.dart';
+import 'package:worldpopulationcounter/screens/world_pop_screen.dart';
+import 'package:worldpopulationcounter/screens/country_pop_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -25,12 +27,8 @@ class MyApp extends StatelessWidget {
             ),
           ),
           body: TabBarView(children: <Widget>[
-            Center(
-              child: Container(
-                child: WorldPopWidget(),
-              ),
-            ),
-            Icon(Icons.directions_car),
+            WorldPopScreen(),
+            CountryPopScreen(),
             Icon(Icons.directions_transit),
           ]),
         ),
