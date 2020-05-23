@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
                   icon: Icon(Icons.group),
                 ),
                 Tab(icon: Icon(Icons.flag)),
-                Tab(icon: Icon(Icons.settings)),
+                Tab(icon: Icon(Icons.info)),
               ],
             ),
           ),

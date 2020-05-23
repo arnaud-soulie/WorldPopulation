@@ -1,11 +1,11 @@
-import 'package:worldpopulationcounter/datas.dart';
-
 class WorldPopCalculator {
   int _secondsSinceStartOfYear, _totalSecondsInCurrentYear, _deltaPop;
   DateTime _now;
   int _baseYear;
+  Map<int, int> worldPopTotal;
 
-  WorldPopCalculator() {
+  WorldPopCalculator(Map<int, int> data) {
+    this.worldPopTotal = data;
     refreshData();
   }
 

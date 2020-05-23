@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:worldpopulationcounter/widgets/world_population.dart';
+import 'package:worldpopulationcounter/datas.dart';
 
 class WorldPopScreen extends StatelessWidget {
   const WorldPopScreen({
@@ -18,7 +19,10 @@ class WorldPopScreen extends StatelessWidget {
               image: Image.asset(
                 'images/earth.png', //Image by truthseeker08 from Pixabay
               ).image)),
-      child: Center(child: WorldPopWidget()),
+      child: Center(
+          child: WorldPopWidget(
+        datas: worldPopTotal,
+      )),
     );
   }
 }
