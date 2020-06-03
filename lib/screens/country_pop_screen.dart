@@ -13,39 +13,47 @@ class _CountryPopScreenState extends State<CountryPopScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          SizedBox(
-            height: 25.0,
-          ),
-          DropdownButton(
-            items: getCountryMenuList(),
-            onChanged: (value) {
-              setState(() {
-                selectedCountry = value;
-              });
-            },
-            value: selectedCountry,
-          ),
-          Expanded(
+    return Column(
+      children: [
+        SizedBox(
+          height: 25.0,
+        ),
+        DropdownButton(
+          items: getCountryMenuList(),
+          onChanged: (value) {
+            setState(() {
+              selectedCountry = value;
+              print(selectedCountry);
+            });
+          },
+          value: selectedCountry,
+        ),
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    colorFilter: new ColorFilter.mode(
+                        Colors.black.withOpacity(0.1), BlendMode.dstATop),
+                    image: Image.asset(
+                      'icons/flags/png/${isoCodes[selectedCountry][1].toLowerCase()}.png',
+                      package: 'country_icons',
+                    ).image)),
+            margin: EdgeInsets.symmetric(horizontal: 10.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                WorldPopWidget(
-                  datas: countrylist[selectedCountry],
+              children: <Widget>[
+                Center(
+                  child: WorldPopWidget(
+                    datas: countrylist[selectedCountry],
+                  ),
                 ),
-                Image.asset(
-                  'icons/flags/png/${isoCodes[selectedCountry][1].toLowerCase()}.png',
-                  package: 'country_icons',
-                )
               ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

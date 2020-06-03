@@ -34,7 +34,10 @@ class _WorldPopWidgetState extends State<WorldPopWidget> {
     return Text(
       '${worldPopulation != null ? display(worldPopulation) : 'Counting...'}',
       style: TextStyle(
-          color: Colors.black87, fontSize: 30.0, fontWeight: FontWeight.w500),
+          color: Colors.black87,
+          fontSize: 30.0,
+          fontWeight: FontWeight.w500,
+          backgroundColor: Colors.black.withOpacity(0.01)),
     );
   }
 
