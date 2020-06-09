@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:worldpopulationcounter/screens/world_pop_screen.dart';
 import 'package:worldpopulationcounter/screens/country_pop_screen.dart';
+import 'package:worldpopulationcounter/screens/about_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           body: TabBarView(children: <Widget>[
             WorldPopScreen(),
             CountryPopScreen(),
-            Icon(Icons.directions_transit),
+            AboutScreen(),
           ]),
         ),
       ),
