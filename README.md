@@ -10,7 +10,4 @@ Country flags are retrieved from the [country_icons](https://pub.dev/packages/co
 
 Feel free to suggest changes or contribute.
 
-![](screen1.jpg)
-
-![](screen2.jpg)
-
+<img src="screen1.jpg" alt="drawing" width="200"/>   <img src="screen2.jpg" alt="drawing" width="200"/>
